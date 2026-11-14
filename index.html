@@ -37,9 +37,11 @@
   .req { margin-top: 14px; font-size: 14px; color: var(--muted); }
   .hero { margin: 56px auto 0; display: block; width: 100%; border-radius: 14px; border: 1px solid var(--line);
           box-shadow: 0 30px 80px rgba(0,0,0,.18); }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin: 64px 0 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px; margin: 64px 0 0; }
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px;
-          backdrop-filter: blur(20px); }
+          backdrop-filter: blur(20px); display: flex; flex-direction: column; }
+  .card img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: top;
+              border-radius: 10px; border: 1px solid var(--line); margin-top: 16px; background: #111; }
   .card h3 { margin: 0 0 6px; font-size: 17px; }
   .card p { margin: 0; color: var(--muted); font-size: 15px; }
   section.private { margin: 64px auto 0; max-width: 720px; text-align: center; }
@@ -73,10 +75,10 @@
        alt="esoji's main window: photos of mountain sunsets in a grid, with the sidebar on the left and the chat on the right.">
 
   <div class="grid">
-    <div class="card"><h3>Search in your own words</h3><p>“The dog on a summit”, “sunsets from the van”. esoji understands what's in each photo, not just its date.</p></div>
-    <div class="card"><h3>Suggested Hearts</h3><p>Your best recent photos you haven't hearted yet, picked to match your taste.</p></div>
-    <div class="card"><h3>Suggested Albums</h3><p>Trips and moments gathered into albums, ready to create with one click.</p></div>
-    <div class="card"><h3>Duplicates</h3><p>Near-identical shots grouped, the best one picked to keep, merged the way iPhone does.</p></div>
+    <div class="card"><h3>Search in your own words</h3><p>“The dog on a summit”, “sunsets from the van”. esoji understands what's in each photo, not just its date.</p><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-search.jpg" alt="A search for “sunset mountain tops”: a grid of mountain sunsets, 574 strong matches." loading="lazy"></div>
+    <div class="card"><h3>Suggested Hearts</h3><p>Your best recent photos you haven't hearted yet, picked to match your taste.</p><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-hearts.jpg" alt="Suggested Hearts under the Nature lens: mountains, lakes and a husky, with Review Top 114 as Hearts." loading="lazy"></div>
+    <div class="card"><h3>Suggested Albums</h3><p>Trips and moments gathered into albums, ready to create with one click.</p><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-albums.jpg" alt="Suggested Albums: trip cards with cover photos, dates and Create buttons." loading="lazy"></div>
+    <div class="card"><h3>Duplicates</h3><p>Near-identical shots grouped, the best one picked to keep, merged the way iPhone does.</p><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-duplicates.jpg" alt="Duplicates: groups of near-identical shots, the one to keep ticked and the rest marked to go." loading="lazy"></div>
   </div>
 
   <section class="private">

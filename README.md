@@ -11,6 +11,19 @@ opens without warnings.
 
 <p align="center"><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/hero.png" width="860" alt="esoji's main window: photos of mountain sunsets in a grid, with the sidebar on the left and the chat on the right."></p>
 
+## What it does
+
+<table>
+<tr>
+<td width="50%"><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-search.jpg" alt="A search for sunset mountain tops"><br><b>Search in your own words</b>: “the dog on a summit”, “sunsets from the van”</td>
+<td width="50%"><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-hearts.jpg" alt="Suggested Hearts"><br><b>Suggested Hearts</b>: your best photos you haven't hearted yet</td>
+</tr>
+<tr>
+<td><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-albums.jpg" alt="Suggested Albums"><br><b>Suggested Albums</b>: trips and moments, ready to create</td>
+<td><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-duplicates.jpg" alt="Duplicates"><br><b>Duplicates</b>: near-identical shots grouped, the best one kept</td>
+</tr>
+</table>
+
 ## What you need
 
 - A Mac with Apple silicon (M1 or later) and macOS 26 or later
