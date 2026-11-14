@@ -38,14 +38,19 @@ goes, and a large library takes a few hours.
 
 ## Private by design
 
-**Your photos never leave your Mac.** Understanding your pictures, search, suggestions, duplicates and face matching
-all happen on your Mac. esoji has no account and no analytics.
+- **Your photos never leave your Mac.** Understanding your pictures (EmbeddingGemma 2 and Apple Vision), search,
+  suggestions, duplicates and face matching all run on your Mac. No account, no analytics.
+- **Works offline.** After the one-time setup download, everything except the chat works with no internet.
+- **Claude is optional and gets text only.** The chat uses Claude (by Anthropic) through Claude Code, only after you
+  turn it on. Before anything is sent, photo ids become handles like `S3.12`, People names become stand-ins like
+  `PERSON_A` (unless you choose to share names), and emails and phone numbers are removed. Claude never sees your
+  photos, thumbnails, face data or file names.
+- **Claude can't change anything.** Its tools run in a sandbox with no network and can only propose. esoji changes
+  your library only when you press Apply. Deleting asks you first, then macOS asks again, and deleted photos stay in
+  Recently Deleted for 30 days.
 
-The chat and the smarter search can use Claude (by Anthropic), but only if you have Claude Code and turn it on. They
-send text, never photos, and esoji shows you exactly what it sends first. Everything else works without it.
-
-esoji changes your library only when you click: it suggests albums and hearts and you press Apply, and deleting always
-asks you first, then macOS asks again. Deleted photos stay in Recently Deleted in Photos for 30 days.
+The [download page](https://santekotturi.github.io/esoji/#security) has a diagram of what stays on your Mac and what
+Claude sees.
 
 ## Updates
 

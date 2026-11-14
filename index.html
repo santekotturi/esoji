@@ -44,9 +44,45 @@
               border-radius: 10px; border: 1px solid var(--line); margin-top: 16px; background: #111; }
   .card h3 { margin: 0 0 6px; font-size: 17px; }
   .card p { margin: 0; color: var(--muted); font-size: 15px; }
-  section.private { margin: 64px auto 0; max-width: 720px; text-align: center; }
-  section.private h2 { font-size: 30px; letter-spacing: -.01em; margin: 0 0 12px; }
-  section.private p { color: var(--muted); margin: 0 0 12px; }
+  .trust { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px;
+           max-width: 860px; margin: 40px auto 0; }
+  .trust div { display: flex; gap: 12px; align-items: flex-start; padding: 16px 18px; border-radius: 14px;
+               background: var(--card); border: 1px solid var(--line); text-align: left; }
+  .trust svg { flex: none; width: 22px; height: 22px; margin-top: 2px; color: var(--accent); }
+  .trust b { display: block; font-size: 15px; }
+  .trust span { display: block; color: var(--muted); font-size: 14px; line-height: 1.4; margin-top: 2px; }
+  section.security { margin: 80px auto 0; max-width: 860px; }
+  section.security h2 { font-size: 30px; letter-spacing: -.01em; margin: 0 0 8px; text-align: center; }
+  section.security > p.sub { color: var(--muted); text-align: center; margin: 0 auto 28px; max-width: 620px; }
+  .flow { display: grid; grid-template-columns: 1fr auto 230px; gap: 0; align-items: center; margin: 0 0 36px; }
+  .mac { border: 2px dashed var(--accent); border-radius: 18px; padding: 34px 16px 16px; position: relative;
+         display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; }
+  .mac > .tag, .cloud > .tag { position: absolute; top: -12px; left: 18px; padding: 0 8px; background: var(--bg);
+         font-size: 13px; font-weight: 600; letter-spacing: .02em; color: var(--accent); }
+  .cloud > .tag { color: var(--muted); }
+  .node { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; font-size: 13px;
+          color: var(--muted); line-height: 1.4; }
+  .node b { display: block; color: var(--ink); font-size: 14px; margin-bottom: 2px; }
+  .node code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink); }
+  .node.gate { border-color: var(--accent); }
+  .arrow { color: var(--muted); font-size: 20px; text-align: center; padding: 0 8px; }
+  .arrow small { display: block; font-size: 11px; line-height: 1.2; }
+  .arrow .v { display: none; }
+  .cloud { border: 2px dashed var(--line); border-radius: 18px; padding: 34px 16px 16px; position: relative; }
+  .never { margin-top: 12px; font-size: 13px; color: var(--muted); grid-column: 1 / -1; }
+  .never b { color: var(--ink); }
+  .specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 14px; }
+  .spec { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
+  .spec h3 { margin: 0 0 6px; font-size: 16px; }
+  .spec p, .spec li { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.5; }
+  .spec ul { margin: 0; padding-left: 18px; }
+  .spec code { font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink); }
+  @media (max-width: 760px) {
+    .flow, .mac { grid-template-columns: 1fr; }
+    .arrow { padding: 6px 0; }
+    .arrow .h { display: none; }
+    .arrow .v { display: inline; }
+  }
   .steps { margin: 64px auto 0; max-width: 720px; }
   .steps h2 { font-size: 22px; margin: 0 0 10px; }
   .steps ol { margin: 0; padding-left: 22px; color: var(--muted); }
@@ -71,6 +107,12 @@
     <p class="req">Free · Apple silicon (M1 or later) · macOS 26 or later<br>The chat needs <a href="https://claude.com/claude-code" style="color:inherit">Claude Code</a>, signed in with a paid Claude plan. Everything else works without it.</p>
   </header>
 
+  <div class="trust">
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><p style="margin:0"><b>Photos never leave your Mac</b><span>Understanding, search and suggestions all run on your Mac.</span></p></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0"/><path d="M3 3l18 18"/></svg><p style="margin:0"><b>Works offline</b><span>After the one-time setup download, it works with Wi-Fi off. Only the optional chat needs internet.</span></p></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg><p style="margin:0"><b>Nothing changes without you</b><span>No account, no analytics. It suggests; you press Apply.</span></p></div>
+  </div>
+
   <img class="hero" src="https://github.com/santekotturi/esoji/releases/download/screenshots/hero.png"
        alt="esoji's main window: photos of mountain sunsets in a grid, with the sidebar on the left and the chat on the right.">
 
@@ -81,11 +123,6 @@
     <div class="card"><h3>Duplicates</h3><p>Near-identical shots grouped, the best one picked to keep, merged the way iPhone does.</p><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-duplicates.jpg" alt="Duplicates: groups of near-identical shots, the one to keep ticked and the rest marked to go." loading="lazy"></div>
   </div>
 
-  <section class="private">
-    <h2>Your photos never leave your Mac</h2>
-    <p>Understanding your pictures, search, suggestions, duplicates and face matching all happen on your Mac. No account, no analytics.</p>
-    <p>esoji only changes your library when you click: it suggests, you press Apply, and deleting always asks first.</p>
-  </section>
 
   <section class="steps">
     <h2>Getting started</h2>
@@ -95,6 +132,40 @@
       <li><b>Allow access to Photos</b> when it asks. esoji downloads its search engine (about 3 GB) and reads your library in the background. Search gets better as it goes.</li>
       <li><b>Optional, for the chat:</b> install <a href="https://claude.com/claude-code">Claude Code</a> and sign in, then turn on Claude in esoji.</li>
     </ol>
+  </section>
+
+  <section class="security" id="security">
+    <h2>How your photos stay private</h2>
+    <p class="sub">Everything that looks at your photos runs on your Mac. Claude is optional, and only ever gets short, sanitized text.</p>
+
+    <div class="flow" role="img" aria-label="Diagram: inside your Mac, Apple Photos feeds esoji, which understands photos on the Mac. A sanitizer turns requests into handles and stand-in names. Only that text crosses to Claude, and only if you turn the chat on.">
+      <div class="mac">
+        <span class="tag">YOUR MAC</span>
+        <div class="node"><b>Apple Photos</b>Your library, read through Apple's Photos access</div>
+        <div class="arrow"><span class="h">→</span><span class="v">↓</span></div>
+        <div class="node"><b>esoji, on device</b>EmbeddingGemma 2 and Apple Vision understand each photo. The index and face data are stored here.</div>
+        <div class="arrow"><span class="h">→</span><span class="v">↓</span></div>
+        <div class="node gate"><b>Sanitizer</b>Photo ids → <code>S3.12</code><br>Names → <code>PERSON_A</code><br>Emails, phones removed</div>
+        <p class="never"><b>Never leaves:</b> photos, thumbnails, image embeddings, face data, photo ids, file names, your library.</p>
+      </div>
+      <div class="arrow"><span class="h">→</span><span class="v">↓</span><small>text only,<br>if you opt in</small></div>
+      <div class="cloud">
+        <span class="tag">ANTHROPIC</span>
+        <div class="node"><b>Claude</b>Plans searches and albums from text. Its answers come back as proposals you review.</div>
+      </div>
+    </div>
+
+    <div class="specs">
+      <div class="spec"><h3>On your Mac, always</h3><p>Photo understanding (EmbeddingGemma 2, Apple Vision), search, Suggested Hearts and Albums, duplicates and face matching all run locally. The index lives in your user Library folder, and nothing is uploaded.</p></div>
+      <div class="spec"><h3>Works offline</h3><p>The first launch downloads the search engine and model once (about 3 GB). After that, searching, suggestions and duplicates work with no internet. Exceptions: the chat, and photos stored only in iCloud, which Photos has to download first.</p></div>
+      <div class="spec"><h3>What Claude can see</h3><ul><li>The words you type, with People names swapped for stand-ins like <code>PERSON_A</code> (unless you choose to share names)</li><li>Handles like <code>S3.12</code> instead of photo ids</li><li>When a request needs it: the day, up to 2 places and 10 scene words per photo</li><li>Email addresses and phone numbers are stripped out</li></ul></div>
+      <div class="spec"><h3>What Claude never sees</h3><p>Your photos or any thumbnail of them, image embeddings, face data, photo ids, file names or your library as a whole. Handles only mean something on your Mac, in that one conversation.</p></div>
+      <div class="spec"><h3>Claude can't change anything</h3><p>Its tools run in a macOS sandbox with no network access. They can read esoji's index and write proposals, nothing else. Changes happen only when you press Apply, and deleting needs your click in a confirmation, then macOS asks again. A check on every build enforces this.</p></div>
+      <div class="spec"><h3>Off until you turn it on</h3><p>Claude is used only after you switch it on, and only through Claude Code on your Mac. Without it, everything except the chat still works.</p></div>
+      <div class="spec"><h3>No account, no tracking</h3><p>No sign-up, analytics or telemetry. The only other connection esoji makes is Check for Updates, when you choose it.</p></div>
+      <div class="spec"><h3>Forget means forget</h3><p>Hide a photo and everything esoji worked out from it is deleted. Settings → Privacy deletes your chats, or all of esoji's data.</p></div>
+      <div class="spec" style="grid-column: 1 / -1"><h3>The limits</h3><p>Stand-in names are pseudonyms, not anonymity: Claude can tell the same person appears in several photos. What Anthropic keeps depends on your Claude account's privacy settings.</p></div>
+    </div>
   </section>
 
   <footer>
