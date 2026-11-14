@@ -16,6 +16,8 @@ opens without warnings.
 - A Mac with Apple silicon (M1 or later) and macOS 26 or later
 - About 6 GB of free space
 - Your photos in Apple Photos
+- For the chat: [Claude Code](https://claude.com/claude-code) installed and signed in, which needs a paid Claude plan.
+  Without it, search, suggestions, duplicates and hiding all still work.
 
 The first time you open it, esoji asks for access to Photos, then downloads its search engine and image model
 (about 3 GB). After that it reads your library in the background. You can use it right away; search gets better as it
