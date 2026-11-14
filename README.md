@@ -1,0 +1,43 @@
+# esoji
+
+**Find, keep and tidy the photos that matter.** esoji is a Mac app that works on top of Apple Photos: search your
+library in your own words, get suggestions for photos to heart and albums to make, clear out duplicates, and hide
+photos of someone in one go.
+
+### [Download esoji for Mac](https://github.com/santekotturi/esoji/releases/latest/download/esoji.dmg)
+
+Open the download, drag esoji to Applications, then open it from Applications. It's signed and checked by Apple, so it
+opens without warnings.
+
+<p align="center"><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/hero.png" width="860" alt="esoji's main window: photos of mountain sunsets in a grid, with the sidebar on the left and the chat on the right."></p>
+
+## What you need
+
+- A Mac with Apple silicon (M1 or later) and macOS 26 or later
+- About 6 GB of free space
+- Your photos in Apple Photos
+
+The first time you open it, esoji asks for access to Photos, then downloads its search engine and image model
+(about 3 GB). After that it reads your library in the background. You can use it right away; search gets better as it
+goes, and a large library takes a few hours.
+
+## Private by design
+
+**Your photos never leave your Mac.** Understanding your pictures, search, suggestions, duplicates and face matching
+all happen on your Mac. esoji has no account and no analytics.
+
+The chat and the smarter search can use Claude (by Anthropic), but only if you have Claude Code and turn it on. They
+send text, never photos, and esoji shows you exactly what it sends first. Everything else works without it.
+
+esoji changes your library only when you click: it suggests albums and hearts and you press Apply, and deleting always
+asks you first, then macOS asks again. Deleted photos stay in Recently Deleted in Photos for 30 days.
+
+## Updates
+
+Choose **esoji → Check for Updates…** in the app. To update, download again and replace the app in Applications. Your
+settings and index stay.
+
+## Questions or problems
+
+[Tell us here](https://github.com/santekotturi/esoji/issues/new). Please don't attach screenshots of your own photos
+unless you're happy for them to be public.

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>esoji: find, keep and tidy the photos that matter</title>
+<meta name="description" content="A Mac app on top of Apple Photos. Search in your own words, get suggestions for hearts and albums, clear out duplicates. Your photos never leave your Mac.">
+<meta name="color-scheme" content="light dark">
+<style>
+  :root {
+    --bg: #faf8f4; --ink: #1d1b19; --muted: #6b665f; --line: rgba(0,0,0,.08);
+    --card: rgba(255,255,255,.7); --accent: #e0523a; --accent-ink: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #141312; --ink: #f2efe9; --muted: #a39d94; --line: rgba(255,255,255,.1);
+            --card: rgba(255,255,255,.05); --accent: #f0603e; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+         -webkit-font-smoothing: antialiased; }
+  main { max-width: 1040px; margin: 0 auto; padding: 72px 24px 56px; }
+  header { text-align: center; }
+  .mark { width: 72px; height: 72px; border-radius: 18px; margin: 0 auto 20px; position: relative;
+          background: linear-gradient(#fbf8f1, #ece5d7); box-shadow: 0 8px 24px rgba(0,0,0,.12), inset 0 1px 0 #fff; }
+  .mark::before { content: ""; position: absolute; inset: 18px 22px 22px; border-radius: 6px;
+                  background: rgba(255,255,255,.75); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .mark::after { content: ""; position: absolute; width: 18px; height: 18px; border-radius: 50%;
+                 left: 27px; top: 23px; background: var(--accent); box-shadow: 0 2px 6px rgba(224,82,58,.45); }
+  h1 { font: 700 56px/1.05 "SF Pro Display", -apple-system, sans-serif; letter-spacing: -.02em; margin: 0 0 14px; }
+  .lede { font-size: 21px; color: var(--muted); max-width: 640px; margin: 0 auto 32px; }
+  .download { display: inline-flex; align-items: center; gap: 10px; padding: 15px 28px; border-radius: 999px;
+              background: var(--accent); color: var(--accent-ink); font-weight: 600; font-size: 18px;
+              text-decoration: none; box-shadow: 0 8px 20px rgba(224,82,58,.3); transition: transform .15s ease; }
+  .download:hover { transform: translateY(-1px); }
+  .download svg { width: 18px; height: 18px; }
+  .req { margin-top: 14px; font-size: 14px; color: var(--muted); }
+  .hero { margin: 56px auto 0; display: block; width: 100%; border-radius: 14px; border: 1px solid var(--line);
+          box-shadow: 0 30px 80px rgba(0,0,0,.18); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin: 64px 0 0; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px;
+          backdrop-filter: blur(20px); }
+  .card h3 { margin: 0 0 6px; font-size: 17px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  section.private { margin: 64px auto 0; max-width: 720px; text-align: center; }
+  section.private h2 { font-size: 30px; letter-spacing: -.01em; margin: 0 0 12px; }
+  section.private p { color: var(--muted); margin: 0 0 12px; }
+  .steps { margin: 64px auto 0; max-width: 720px; }
+  .steps h2 { font-size: 22px; margin: 0 0 10px; }
+  .steps ol { margin: 0; padding-left: 22px; color: var(--muted); }
+  .steps li { margin: 4px 0; }
+  .steps b { color: var(--ink); }
+  footer { margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted);
+           display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+  footer a { color: inherit; }
+  @media (max-width: 600px) { h1 { font-size: 42px; } .lede { font-size: 18px; } main { padding-top: 48px; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="mark" aria-hidden="true"></div>
+    <h1>esoji</h1>
+    <p class="lede">Find, keep and tidy the photos that matter. A Mac app on top of Apple Photos that searches in your own words, suggests what to heart and which albums to make, and clears out duplicates.</p>
+    <a class="download" href="https://github.com/santekotturi/esoji/releases/latest/download/esoji.dmg">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
+      Download for Mac
+    </a>
+    <p class="req">Free · Apple silicon (M1 or later) · macOS 26 or later</p>
+  </header>
+
+  <img class="hero" src="https://github.com/santekotturi/esoji/releases/download/screenshots/hero.png"
+       alt="esoji's main window: photos of mountain sunsets in a grid, with the sidebar on the left and the chat on the right.">
+
+  <div class="grid">
+    <div class="card"><h3>Search in your own words</h3><p>“The dog on a summit”, “sunsets from the van”. esoji understands what's in each photo, not just its date.</p></div>
+    <div class="card"><h3>Suggested Hearts</h3><p>Your best recent photos you haven't hearted yet, picked to match your taste.</p></div>
+    <div class="card"><h3>Suggested Albums</h3><p>Trips and moments gathered into albums, ready to create with one click.</p></div>
+    <div class="card"><h3>Duplicates</h3><p>Near-identical shots grouped, the best one picked to keep, merged the way iPhone does.</p></div>
+  </div>
+
+  <section class="private">
+    <h2>Your photos never leave your Mac</h2>
+    <p>Understanding your pictures, search, suggestions, duplicates and face matching all happen on your Mac. No account, no analytics.</p>
+    <p>esoji only changes your library when you click: it suggests, you press Apply, and deleting always asks first.</p>
+  </section>
+
+  <section class="steps">
+    <h2>Getting started</h2>
+    <ol>
+      <li><b>Download</b> and open esoji.dmg.</li>
+      <li><b>Drag esoji to Applications</b>, then open it from there.</li>
+      <li><b>Allow access to Photos</b> when it asks. esoji downloads its search engine (about 3 GB) and reads your library in the background. Search gets better as it goes.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <a href="https://github.com/santekotturi/esoji/releases">All versions</a>
+    <a href="https://github.com/santekotturi/esoji/issues/new">Report a problem</a>
+    <span>Made by Sante Kotturi</span>
+  </footer>
+</main>
+</body>
+</html>
