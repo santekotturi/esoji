@@ -21,6 +21,7 @@
 <meta name="twitter:description" content="Search your Apple Photos in your own words. Your photos never leave your Mac.">
 <meta name="twitter:image" content="https://santekotturi.github.io/esoji/og.png?v=2">
 <link rel="icon" href="og-icon.png">
+<script>if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js');</script>
 <style>
   :root {
     --bg: #faf8f4; --ink: #1d1b19; --muted: #6b665f; --line: rgba(0,0,0,.08);
@@ -44,6 +45,21 @@
                  left: 27px; top: 23px; background: var(--accent); box-shadow: 0 2px 6px rgba(224,82,58,.45); }
   h1 { font: 700 56px/1.05 "SF Pro Display", -apple-system, sans-serif; letter-spacing: -.02em; margin: 0 0 14px; }
   .lede { font-size: 21px; color: var(--muted); max-width: 640px; margin: 0 auto 32px; }
+  .hook { margin: 0 auto 32px; max-width: 680px; }
+  .hook .line1 { font: 600 30px/1.2 "SF Pro Display", -apple-system, sans-serif; color: var(--ink); letter-spacing: -.01em; margin: 0; }
+  .hook .count { font-variant-numeric: tabular-nums; color: var(--accent); display: inline-block; min-width: 3.4em; text-align: right; }
+  .hook .rot { position: relative; height: 1.3em; margin: 6px 0 0; font: 600 30px/1.3 "SF Pro Display", -apple-system, sans-serif;
+               color: var(--ink); letter-spacing: -.01em; overflow: hidden; }
+  .hook .rot span { position: absolute; inset: 0; opacity: 0; transform: translateY(70%);
+                    transition: opacity .45s ease, transform .45s cubic-bezier(.2,.8,.2,1); }
+  .hook .rot span.on { opacity: 1; transform: none; }
+  .hook .rot span.off { opacity: 0; transform: translateY(-70%); }
+  .hook .powered { margin: 12px 0 0; font-size: 18px; color: var(--muted); }
+  .hook .static { font-size: 21px; color: var(--muted); margin: 0; }
+  .js .hook .static { display: none; }
+  .hook .anim { display: none; }
+  .js .hook .anim { display: block; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .download { display: inline-flex; align-items: center; gap: 10px; padding: 15px 28px; border-radius: 999px;
               background: var(--accent); color: var(--accent-ink); font-weight: 600; font-size: 18px;
               text-decoration: none; box-shadow: 0 8px 20px rgba(224,82,58,.3); transition: transform .15s ease; }
@@ -106,7 +122,8 @@
   footer { margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted);
            display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
   footer a { color: inherit; }
-  @media (max-width: 600px) { h1 { font-size: 42px; } .lede { font-size: 18px; } main { padding-top: 48px; } }
+  @media (max-width: 600px) { h1 { font-size: 42px; } .lede { font-size: 18px; } main { padding-top: 48px; }
+    .hook .line1, .hook .rot { font-size: 24px; } .hook .powered { font-size: 16px; } }
 </style>
 </head>
 <body>
@@ -114,7 +131,14 @@
   <header>
     <div class="mark" aria-hidden="true"></div>
     <h1>esoji</h1>
-    <p class="lede">Find, keep and tidy the photos that matter. A Mac app on top of Apple Photos that searches in your own words, suggests what to heart and which albums to make, and clears out duplicates.</p>
+    <div class="hook">
+      <p class="static">40,000 photos. Find the good ones. Remove the duplicates. Remove your ex. Powered by local AI, securely on your computer.</p>
+      <div class="anim" aria-hidden="true">
+        <p class="line1"><span class="count" id="count">10,000</span> photos.</p>
+        <div class="rot" id="rot"><span class="on">Find the good ones.</span><span>Remove the duplicates.</span><span>Remove your ex.</span></div>
+        <p class="powered">Powered by local AI, securely on your computer.</p>
+      </div>
+    </div>
     <a class="download" href="https://github.com/santekotturi/esoji/releases/latest/download/esoji.dmg">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
       Download for Mac
@@ -189,5 +213,30 @@
     <span>Made by Sante Kotturi</span>
   </footer>
 </main>
+<script>
+(() => {
+  // The subheader's animation: the photo count ticks from 10,000 to 90,000, then the features take turns underneath.
+  // Without JavaScript, or with Reduce Motion on, the plain sentence shows instead.
+  if (!document.documentElement.classList.contains('js')) return;
+  const count = document.getElementById('count'), items = [...document.querySelectorAll('#rot span')];
+  const from = 10000, to = 90000, ms = 2200;
+  let t0;   // set on the first frame, so a page opened in a background tab counts up when it's first shown
+  const tick = (t) => {
+    t0 ??= t;
+    const p = Math.min(1, (t - t0) / ms), e = 1 - Math.pow(1 - p, 3);
+    count.textContent = (Math.round((from + (to - from) * e) / 100) * 100).toLocaleString('en-US');
+    if (p < 1) requestAnimationFrame(tick); else setTimeout(rotate, 1400);
+  };
+  let i = 0;
+  const rotate = () => {
+    const cur = items[i]; i = (i + 1) % items.length; const next = items[i];
+    cur.classList.remove('on'); cur.classList.add('off');
+    next.classList.remove('off'); void next.offsetWidth; next.classList.add('on');
+    setTimeout(() => cur.classList.remove('off'), 500);
+    setTimeout(rotate, 2200);
+  };
+  requestAnimationFrame(tick);
+})();
+</script>
 </body>
 </html>
