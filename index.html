@@ -102,6 +102,31 @@
   .cloud { border: 2px dashed var(--line); border-radius: 18px; padding: 34px 16px 16px; position: relative; }
   .never { margin-top: 12px; font-size: 13px; color: var(--muted); grid-column: 1 / -1; }
   .never b { color: var(--ink); }
+  .pick { display: flex; justify-content: center; gap: 4px; margin: 0 auto 22px; padding: 4px; width: fit-content;
+          border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+  section.security > input[name=prov] { position: absolute; opacity: 0; pointer-events: none; }
+  .pick label { padding: 8px 16px; border-radius: 9px; font-size: 14px; font-weight: 600; color: var(--muted); cursor: pointer; }
+  .pick label small { font-weight: 400; margin-left: 4px; }
+  #p-apple:focus-visible ~ .pick label[for=p-apple], #p-claude:focus-visible ~ .pick label[for=p-claude],
+  #p-codex:focus-visible ~ .pick label[for=p-codex] { outline: 2px solid var(--accent); outline-offset: 2px; }
+  #p-apple:checked ~ .pick label[for=p-apple], #p-claude:checked ~ .pick label[for=p-claude],
+  #p-codex:checked ~ .pick label[for=p-codex] { background: var(--accent); color: var(--accent-ink); }
+  .flow .p-apple, .flow .p-claude, .flow .p-codex, .flow .p-cloud { display: none; }
+  #p-apple:checked ~ .flow .p-apple, #p-claude:checked ~ .flow .p-claude, #p-codex:checked ~ .flow .p-codex,
+  #p-claude:checked ~ .flow .p-cloud, #p-codex:checked ~ .flow .p-cloud { display: block; }
+  #p-apple:checked ~ .flow .cloud { opacity: .45; }
+  .node.ai { border-color: var(--accent); }
+  .arrow.blocked { text-decoration: line-through; }
+  .compare { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0 0 36px; font-size: 14px;
+             border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); }
+  .compare th, .compare td { padding: 11px 14px; text-align: left; vertical-align: top; border-top: 1px solid var(--line); line-height: 1.45; }
+  .compare thead th { border-top: 0; font-size: 15px; color: var(--ink); }
+  .compare tbody th { color: var(--ink); font-weight: 600; width: 18%; }
+  .compare td { color: var(--muted); }
+  .compare code { font: 12.5px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink); }
+  .compare-wrap { overflow-x: auto; }
+  @media (max-width: 520px) { .pick label { padding: 8px 10px; font-size: 13px; } .pick label small { display: none; }
+    .compare { font-size: 13px; } .compare th, .compare td { padding: 9px 8px; } }
   .specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 14px; }
   .spec { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
   .spec h3 { margin: 0 0 6px; font-size: 16px; }
@@ -188,24 +213,58 @@
 
   <section class="security" id="security">
     <h2>How your photos stay private</h2>
-    <p class="sub">Everything that looks at your photos runs on your Mac, and with Apple Intelligence so do search and the chat. Claude Code and Codex are optional, and only ever get short, sanitized text.</p>
+    <p class="sub">Everything that looks at your photos runs on your Mac. The chat runs on one of three models, and you pick which in esoji's Settings. Where you draw the line moves with it:</p>
 
-    <div class="flow" role="img" aria-label="Diagram: inside your Mac, Apple Photos feeds esoji, which understands photos, searches and chats on the Mac with Apple Intelligence. A sanitizer turns requests into handles and stand-in names. Only that text crosses to Claude Code or Codex, and only if you turn one on.">
+    <input type="radio" name="prov" id="p-apple" checked aria-label="Apple Intelligence">
+    <input type="radio" name="prov" id="p-claude" aria-label="Claude Code">
+    <input type="radio" name="prov" id="p-codex" aria-label="Codex">
+    <div class="pick">
+      <label for="p-apple">Apple Intelligence<small>default</small></label>
+      <label for="p-claude">Claude Code</label>
+      <label for="p-codex">Codex</label>
+    </div>
+
+    <div class="flow" role="img" aria-label="Diagram: inside your Mac, Apple Photos feeds esoji. With Apple Intelligence, the chat runs on Apple's model on the Mac and nothing is sent. With Claude Code or Codex, a sanitizer turns requests into handles and stand-in names, and only that text goes to Anthropic or OpenAI, after you agree.">
       <div class="mac">
         <span class="tag">YOUR MAC</span>
         <div class="node"><b>Apple Photos</b>Your library, read through Apple's Photos access</div>
         <div class="arrow"><span class="h">→</span><span class="v">↓</span></div>
-        <div class="node"><b>esoji, on device</b>EmbeddingGemma 2 and Apple Vision understand each photo. Apple Intelligence reads searches and runs the chat. The index and face data are stored here.</div>
+        <div class="node"><b>esoji, on device</b>EmbeddingGemma 2 and Apple Vision understand each photo. The index and face data are stored here.</div>
         <div class="arrow"><span class="h">→</span><span class="v">↓</span></div>
-        <div class="node gate"><b>Sanitizer</b>Photo ids → <code>S3.12</code><br>Names → <code>PERSON_A</code><br>Emails, phones removed</div>
+        <div class="node ai p-apple"><b>Apple Intelligence</b>Apple's model, on this Mac. Reads your searches and runs the chat. It can see real names because nothing is sent.</div>
+        <div class="node gate p-cloud"><b>Sanitizer</b>Photo ids → <code>S3.12</code><br>Names → <code>PERSON_A</code><br>Emails, phones removed</div>
         <p class="never"><b>Never leaves:</b> photos, thumbnails, image embeddings, face data, photo ids, file names, your library.</p>
       </div>
-      <div class="arrow"><span class="h">→</span><span class="v">↓</span><small>text only,<br>if you opt in</small></div>
+      <div class="arrow">
+        <span class="p-apple"><span class="h">✕</span><span class="v">✕</span><small>nothing<br>is sent</small></span>
+        <span class="p-cloud"><span class="h">→</span><span class="v">↓</span><small>sanitized text,<br>after you agree</small></span>
+      </div>
       <div class="cloud">
-        <span class="tag">ANTHROPIC OR OPENAI</span>
-        <div class="node"><b>Claude Code or Codex</b>Optional. Plans searches and albums from text. Answers come back as proposals you review.</div>
+        <span class="tag p-apple">THE INTERNET</span>
+        <span class="tag p-claude">ANTHROPIC</span>
+        <span class="tag p-codex">OPENAI</span>
+        <div class="node p-apple"><b>Not used</b>The chat works with Wi-Fi off. No account, and nothing to agree to.</div>
+        <div class="node p-claude"><b>Claude Code</b>With your Claude account. Plans searches and albums from text. Answers come back as proposals you review.</div>
+        <div class="node p-codex"><b>Codex</b>With your ChatGPT or OpenAI account. Plans searches and albums from text. Answers come back as proposals you review.</div>
       </div>
     </div>
+
+    <div class="compare-wrap">
+    <table class="compare">
+      <thead><tr><th></th><th>Apple Intelligence</th><th>Claude Code</th><th>Codex</th></tr></thead>
+      <tbody>
+        <tr><th>Runs on</th><td>Your Mac</td><td>Anthropic's servers</td><td>OpenAI's servers</td></tr>
+        <tr><th>You need</th><td>Apple Intelligence turned on</td><td>Claude Code installed, a Claude account</td><td>Codex installed, a ChatGPT or OpenAI account</td></tr>
+        <tr><th>Before it starts</th><td>Nothing to agree to</td><td colspan="2">esoji asks once for each, and sends nothing until you agree</td></tr>
+        <tr><th>What it gets</th><td>Your words and esoji's results, on the Mac</td><td colspan="2">Sanitized text: your words, handles like <code>S3.12</code>, and when needed a photo's day, places and scene words</td></tr>
+        <tr><th>People's names</th><td>Real names (they stay on the Mac)</td><td colspan="2">Stand-ins like <code>PERSON_A</code>, unless you choose to share names</td></tr>
+        <tr><th>Internet</th><td>Not needed</td><td colspan="2">Needed for the chat</td></tr>
+        <tr><th>What's kept</th><td>Nothing outside your Mac</td><td>Depends on your Claude account's settings</td><td>Depends on your OpenAI account's settings</td></tr>
+        <tr><th>Best at</th><td>Quick searches, follow-ups, simple albums and hearts</td><td colspan="2">Long, many-step requests: curating, organizing, explaining what it found</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="sub" style="color:var(--muted);text-align:center;margin:-22px auto 36px;font-size:14px">Or choose none: there's no chat, and search, suggestions and duplicates all still work on your Mac.</p>
 
     <div class="specs">
       <div class="spec"><h3>On your Mac, always</h3><p>Photo understanding (EmbeddingGemma 2, Apple Vision), search, Suggested Hearts and Albums, duplicates, face matching and Morning esoji all run locally. The index lives in your user Library folder, and nothing is uploaded.</p></div>
@@ -214,7 +273,7 @@
       <div class="spec"><h3>What Claude Code or Codex can see</h3><ul><li>Nothing until you turn one on, in esoji's Settings</li><li>The words you type, with People names swapped for stand-ins like <code>PERSON_A</code> (unless you choose to share names)</li><li>Handles like <code>S3.12</code> instead of photo ids</li><li>When a request needs it: the day, up to 2 places and 10 scene words per photo</li><li>Email addresses and phone numbers are stripped out</li></ul></div>
       <div class="spec"><h3>What they never see</h3><p>Your photos or any thumbnail of them, image embeddings, face data, photo ids, file names or your library as a whole. Handles only mean something on your Mac, in that one conversation.</p></div>
       <div class="spec"><h3>The assistant can't change anything</h3><p>Whichever assistant you use, its tools run in a macOS sandbox with no network access. They can read esoji's index and write proposals, nothing else. Changes happen only when you press Apply, and deleting needs your click in a confirmation, then macOS asks again. A check on every build enforces this.</p></div>
-      <div class="spec"><h3>No account, no tracking</h3><p>No sign-up, analytics or telemetry. Besides the setup download, esoji checks for a new version at most once a day: one request for GitHub's public latest-release page, with an <code>esoji/&lt;version&gt;</code> User-Agent and nothing about you or your photos. You can turn it off in Settings.</p></div>
+      <div class="spec"><h3>No account, no tracking</h3><p>No sign-up, analytics or telemetry. Besides the setup download, esoji checks for a new version at most once a day: one request for GitHub's public latest-release page, with an <code>esoji/&lt;version&gt;</code> User-Agent and nothing about you or your photos. You can turn it off in Settings → Updates.</p></div>
       <div class="spec"><h3>Forget means forget</h3><p>Hide a photo and everything esoji worked out from it is deleted. Settings → Privacy deletes your chats, or all of esoji's data.</p></div>
       <div class="spec" style="grid-column: 1 / -1"><h3>The limits</h3><p>Stand-in names are pseudonyms, not anonymity: Claude or Codex can tell the same person appears in several photos. What Anthropic or OpenAI keeps depends on your account's privacy settings. Apple Intelligence's model is small: it handles short requests well, while Claude Code or Codex do better with long, many-step ones.</p></div>
     </div>
