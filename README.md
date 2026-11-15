@@ -1,7 +1,7 @@
 # esoji
 
 **Find, keep and tidy the photos that matter.** esoji is a Mac app that works on top of Apple Photos: search your
-library in your own words, get suggestions for photos to heart and albums to make, clear out duplicates, and hide
+library in your own words, get suggestions for photos to favorite and albums to make, clear out duplicates, and hide
 photos of someone in one go.
 
 ### [Download esoji for Mac](https://github.com/santekotturi/esoji/releases/latest/download/esoji.dmg)
@@ -16,7 +16,7 @@ opens without warnings.
 <table>
 <tr>
 <td width="50%"><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-search.jpg" alt="A search for sunset mountain tops"><br><b>Search in your own words</b>: “the dog on a summit”, “sunsets from the van”</td>
-<td width="50%"><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-hearts.jpg" alt="Suggested Hearts"><br><b>Suggested Hearts</b>: your best photos you haven't hearted yet</td>
+<td width="50%"><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-hearts.jpg" alt="Suggested Favorites"><br><b>Suggested Favorites</b>: your best photos you haven't favorited yet</td>
 </tr>
 <tr>
 <td><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-albums.jpg" alt="Suggested Albums"><br><b>Suggested Albums</b>: trips and moments, ready to create</td>
@@ -51,7 +51,7 @@ goes, and a large library takes a few hours.
 - **The assistant can't change anything.** Whichever it is, its tools run in a sandbox with no network and can only
   propose. esoji changes your library only when you press Apply. Deleting asks you first, then macOS asks again, and
   deleted photos stay in Recently Deleted for 30 days.
-- **Morning esoji** (optional) is made on your Mac at night: the best new photos to heart, an album when a trip is
+- **Morning esoji** (optional) is made on your Mac at night: the best new photos to favorite, an album when a trip is
   over, new duplicates. Nothing is sent anywhere.
 
 The [download page](https://santekotturi.github.io/esoji/#security) has a diagram of what stays on your Mac and what

@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>esoji: find, keep and tidy the photos that matter</title>
-<meta name="description" content="A Mac app on top of Apple Photos. Search in your own words, get suggestions for hearts and albums, clear out duplicates. Your photos never leave your Mac, and with Apple Intelligence, search and chat run on it too.">
+<meta name="description" content="A Mac app on top of Apple Photos. Search in your own words, get suggestions for favorites and albums, clear out duplicates. Your photos never leave your Mac, and with Apple Intelligence, search and chat run on it too.">
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://santekotturi.github.io/esoji/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="esoji">
 <meta property="og:url" content="https://santekotturi.github.io/esoji/">
 <meta property="og:title" content="esoji: find, keep and tidy the photos that matter">
-<meta property="og:description" content="A Mac app on top of Apple Photos. Search in your own words, get suggestions for hearts and albums, clear out duplicates. Your photos never leave your Mac, and with Apple Intelligence, search and chat run on it too.">
+<meta property="og:description" content="A Mac app on top of Apple Photos. Search in your own words, get suggestions for favorites and albums, clear out duplicates. Your photos never leave your Mac, and with Apple Intelligence, search and chat run on it too.">
 <meta property="og:image" content="https://santekotturi.github.io/esoji/og.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -179,7 +179,7 @@
   </div>
 
   <video class="hero" id="demo" autoplay muted loop playsinline controls preload="metadata" poster="demo/poster-16x9.jpg"
-         aria-label="A 55-second demo of esoji: searching photos in your own words, Suggested Hearts and Albums, duplicates, This or That and the chat, on a Mac next to Apple Photos.">
+         aria-label="A 55-second demo of esoji: searching photos in your own words, Suggested Favorites and Albums, duplicates, This or That and the chat, on a Mac next to Apple Photos.">
     <source src="demo/esoji-demo-9x16.mp4" type="video/mp4" media="(max-width: 600px)">
     <source src="demo/esoji-demo-16x9.mp4" type="video/mp4">
   </video>
@@ -194,7 +194,7 @@
 
   <div class="grid">
     <div class="card"><h3>Search in your own words</h3><p>“The dog on a summit”, “sunsets from the van”. esoji understands what's in each photo, not just its date.</p><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-search.jpg" alt="A search for “sunset mountain tops”: a grid of mountain sunsets, 574 strong matches." loading="lazy"></div>
-    <div class="card"><h3>Suggested Hearts</h3><p>Your best recent photos you haven't hearted yet, picked to match your taste.</p><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-hearts.jpg" alt="Suggested Hearts under the Nature lens: mountains, lakes and a husky, with Review Top 114 as Hearts." loading="lazy"></div>
+    <div class="card"><h3>Suggested Favorites</h3><p>Your best recent photos you haven't favorited yet, picked to match your taste.</p><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-hearts.jpg" alt="Suggested Favorites under the Nature lens: mountains, lakes and a husky, with Review Top 114 as Favorites." loading="lazy"></div>
     <div class="card"><h3>Suggested Albums</h3><p>Trips and moments gathered into albums, ready to create with one click.</p><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-albums.jpg" alt="Suggested Albums: trip cards with cover photos, dates and Create buttons." loading="lazy"></div>
     <div class="card"><h3>Duplicates</h3><p>Near-identical shots grouped, the best one picked to keep, merged the way iPhone does.</p><img src="https://github.com/santekotturi/esoji/releases/download/screenshots/feature-duplicates.jpg" alt="Duplicates: groups of near-identical shots, the one to keep ticked and the rest marked to go." loading="lazy"></div>
   </div>
@@ -207,7 +207,7 @@
       <li><b>Drag esoji to Applications</b>, then open it from there.</li>
       <li><b>Allow access to Photos</b> when it asks. esoji downloads its search engine (about 3 GB) and reads your library in the background. Search gets better as it goes.</li>
       <li><b>Chat.</b> With Apple Intelligence on, the chat works right away, on your Mac. Or install <a href="https://claude.com/claude-code">Claude Code</a> or <a href="https://developers.openai.com/codex/cli">Codex</a>, sign in, and turn it on in esoji's Settings.</li>
-      <li><b>Optional: Morning esoji.</b> Turn it on in Settings for a quiet note each morning with new photos worth a heart, finished trips and duplicates.</li>
+      <li><b>Optional: Morning esoji.</b> Turn it on in Settings for a quiet note each morning with new photos worth a favorite, finished trips and duplicates.</li>
     </ol>
   </section>
 
@@ -260,14 +260,14 @@
         <tr><th>People's names</th><td>Real names (they stay on the Mac)</td><td colspan="2">Stand-ins like <code>PERSON_A</code>, unless you choose to share names</td></tr>
         <tr><th>Internet</th><td>Not needed</td><td colspan="2">Needed for the chat</td></tr>
         <tr><th>What's kept</th><td>Nothing outside your Mac</td><td>Depends on your Claude account's settings</td><td>Depends on your OpenAI account's settings</td></tr>
-        <tr><th>Best at</th><td>Quick searches, follow-ups, simple albums and hearts</td><td colspan="2">Long, many-step requests: curating, organizing, explaining what it found</td></tr>
+        <tr><th>Best at</th><td>Quick searches, follow-ups, simple albums and favorites</td><td colspan="2">Long, many-step requests: curating, organizing, explaining what it found</td></tr>
       </tbody>
     </table>
     </div>
     <p class="sub" style="color:var(--muted);text-align:center;margin:-22px auto 36px;font-size:14px">Or choose none: there's no chat, and search, suggestions and duplicates all still work on your Mac.</p>
 
     <div class="specs">
-      <div class="spec"><h3>On your Mac, always</h3><p>Photo understanding (EmbeddingGemma 2, Apple Vision), search, Suggested Hearts and Albums, duplicates, face matching and Morning esoji all run locally. The index lives in your user Library folder, and nothing is uploaded.</p></div>
+      <div class="spec"><h3>On your Mac, always</h3><p>Photo understanding (EmbeddingGemma 2, Apple Vision), search, Suggested Favorites and Albums, duplicates, face matching and Morning esoji all run locally. The index lives in your user Library folder, and nothing is uploaded.</p></div>
       <div class="spec"><h3>Apple Intelligence, on your Mac</h3><p>On a Mac that supports Apple Intelligence, with it turned on, Apple's on-device model reads your searches, refines them and runs the chat. What it gets stays on your Mac, so it needs no account and asks nothing first. Without it, search gives instant results.</p></div>
       <div class="spec"><h3>Works offline</h3><p>The first launch downloads the search engine and model once (about 3 GB). After that, search, suggestions, duplicates and the Apple Intelligence chat work with no internet. Exceptions: Claude Code or Codex if you choose them, and photos stored only in iCloud, which Photos has to download first.</p></div>
       <div class="spec"><h3>What Claude Code or Codex can see</h3><ul><li>Nothing until you turn one on, in esoji's Settings</li><li>The words you type, with People names swapped for stand-ins like <code>PERSON_A</code> (unless you choose to share names)</li><li>Handles like <code>S3.12</code> instead of photo ids</li><li>When a request needs it: the day, up to 2 places and 10 scene words per photo</li><li>Email addresses and phone numbers are stripped out</li></ul></div>
