@@ -29,8 +29,10 @@ opens without warnings.
 - A Mac with Apple silicon (M1 or later) and macOS 26 or later
 - About 6 GB of free space
 - Your photos in Apple Photos
-- For the chat: [Claude Code](https://claude.com/claude-code) installed and signed in, which needs a paid Claude plan.
-  Without it, search, suggestions, duplicates and hiding all still work.
+- Optional, for search understanding and the chat on your Mac: Apple Intelligence, turned on, on a Mac that supports it
+- Optional, instead: [Claude Code](https://claude.com/claude-code) (a paid Claude plan) or
+  [Codex](https://developers.openai.com/codex/cli), installed and signed in. Without any of these,
+  search gives instant results and suggestions, duplicates, hiding and Morning esoji all still work.
 
 The first time you open it, esoji asks for access to Photos, then downloads its search engine and image model
 (about 3 GB). After that it reads your library in the background. You can use it right away; search gets better as it
@@ -40,22 +42,27 @@ goes, and a large library takes a few hours.
 
 - **Your photos never leave your Mac.** Understanding your pictures (EmbeddingGemma 2 and Apple Vision), search,
   suggestions, duplicates and face matching all run on your Mac. No account, no analytics.
-- **Works offline.** After the one-time setup download, everything except the chat works with no internet.
-- **Claude is optional and gets text only.** The chat uses Claude (by Anthropic) through Claude Code, only after you
-  turn it on. Before anything is sent, photo ids become handles like `S3.12`, People names become stand-ins like
-  `PERSON_A` (unless you choose to share names), and emails and phone numbers are removed. Claude never sees your
-  photos, thumbnails, face data or file names.
-- **Claude can't change anything.** Its tools run in a sandbox with no network and can only propose. esoji changes
-  your library only when you press Apply. Deleting asks you first, then macOS asks again, and deleted photos stay in
-  Recently Deleted for 30 days.
+- **With Apple Intelligence, all of it can run on your Mac**: understanding photos, search, refining searches and the
+  chat. It works offline after the one-time setup download.
+- **Claude Code and Codex are optional and get text only.** The chat and smarter search can use Claude (Anthropic) or
+  Codex (OpenAI) instead, only after you turn one on. Before anything is sent, photo ids become handles like `S3.12`,
+  People names become stand-ins like `PERSON_A` (unless you choose to share names), and emails and phone numbers are
+  removed. They never see your photos, thumbnails, face data or file names.
+- **The assistant can't change anything.** Whichever it is, its tools run in a sandbox with no network and can only
+  propose. esoji changes your library only when you press Apply. Deleting asks you first, then macOS asks again, and
+  deleted photos stay in Recently Deleted for 30 days.
+- **Morning esoji** (optional) is made on your Mac at night: the best new photos to heart, an album when a trip is
+  over, new duplicates. Nothing is sent anywhere.
 
 The [download page](https://santekotturi.github.io/esoji/#security) has a diagram of what stays on your Mac and what
-Claude sees.
+Claude Code or Codex see.
 
 ## Updates
 
-Choose **esoji → Check for Updates…** in the app. To update, download again and replace the app in Applications. Your
-settings and index stay.
+esoji checks for a new version at most once a day and tells you only when there is one. The check asks GitHub for
+the public page of esoji's latest release, with an `esoji/<version>` User-Agent: nothing about you or your photos.
+Turn it off in **Settings → Updates**, or check yourself with **esoji → Check for Updates…**. To update, download again
+and replace the app in Applications. Your settings and index stay.
 
 ## Questions or problems
 

@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>esoji: find, keep and tidy the photos that matter</title>
-<meta name="description" content="A Mac app on top of Apple Photos. Search in your own words, get suggestions for hearts and albums, clear out duplicates. Your photos never leave your Mac.">
+<meta name="description" content="A Mac app on top of Apple Photos. Search in your own words, get suggestions for hearts and albums, clear out duplicates. Your photos never leave your Mac, and with Apple Intelligence, search and chat run on it too.">
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://santekotturi.github.io/esoji/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="esoji">
 <meta property="og:url" content="https://santekotturi.github.io/esoji/">
 <meta property="og:title" content="esoji: find, keep and tidy the photos that matter">
-<meta property="og:description" content="A Mac app on top of Apple Photos. Search in your own words, get suggestions for hearts and albums, clear out duplicates. Your photos never leave your Mac.">
+<meta property="og:description" content="A Mac app on top of Apple Photos. Search in your own words, get suggestions for hearts and albums, clear out duplicates. Your photos never leave your Mac, and with Apple Intelligence, search and chat run on it too.">
 <meta property="og:image" content="https://santekotturi.github.io/esoji/og.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -113,6 +113,7 @@
     .arrow { padding: 6px 0; }
     .arrow .h { display: none; }
     .arrow .v { display: inline; }
+    .cloud { margin-top: 14px; }
   }
   .steps { margin: 64px auto 0; max-width: 720px; }
   .steps h2 { font-size: 22px; margin: 0 0 10px; }
@@ -143,12 +144,12 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
       Download for Mac
     </a>
-    <p class="req">Free · Apple silicon (M1 or later) · macOS 26 or later<br>The chat needs <a href="https://claude.com/claude-code" style="color:inherit">Claude Code</a>, signed in with a paid Claude plan. Everything else works without it.</p>
+    <p class="req">Free · Apple silicon (M1 or later) · macOS 26 or later<br>Search understanding and the chat run on your Mac with Apple Intelligence turned on. <a href="https://claude.com/claude-code" style="color:inherit">Claude Code</a> or <a href="https://developers.openai.com/codex/cli" style="color:inherit">Codex</a> are optional.</p>
   </header>
 
   <div class="trust">
-    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><p style="margin:0"><b>Photos never leave your Mac</b><span>Understanding, search and suggestions all run on your Mac.</span></p></div>
-    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0"/><path d="M3 3l18 18"/></svg><p style="margin:0"><b>Works offline</b><span>After the one-time setup download, it works with Wi-Fi off. Only the optional chat needs internet.</span></p></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><p style="margin:0"><b>Photos never leave your Mac</b><span>Understanding, search, suggestions and, with Apple Intelligence, the chat run on your Mac.</span></p></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0"/><path d="M3 3l18 18"/></svg><p style="margin:0"><b>Works offline</b><span>After the one-time setup download, it works with Wi-Fi off. Only Claude Code or Codex, if you choose them, need internet.</span></p></div>
     <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg><p style="margin:0"><b>Nothing changes without you</b><span>No account, no analytics. It suggests; you press Apply.</span></p></div>
   </div>
 
@@ -180,41 +181,42 @@
       <li><b>Download</b> and open esoji.dmg.</li>
       <li><b>Drag esoji to Applications</b>, then open it from there.</li>
       <li><b>Allow access to Photos</b> when it asks. esoji downloads its search engine (about 3 GB) and reads your library in the background. Search gets better as it goes.</li>
-      <li><b>Optional, for the chat:</b> install <a href="https://claude.com/claude-code">Claude Code</a> and sign in, then turn on Claude in esoji.</li>
+      <li><b>Chat.</b> With Apple Intelligence on, the chat works right away, on your Mac. Or install <a href="https://claude.com/claude-code">Claude Code</a> or <a href="https://developers.openai.com/codex/cli">Codex</a>, sign in, and turn it on in esoji's Settings.</li>
+      <li><b>Optional: Morning esoji.</b> Turn it on in Settings for a quiet note each morning with new photos worth a heart, finished trips and duplicates.</li>
     </ol>
   </section>
 
   <section class="security" id="security">
     <h2>How your photos stay private</h2>
-    <p class="sub">Everything that looks at your photos runs on your Mac. Claude is optional, and only ever gets short, sanitized text.</p>
+    <p class="sub">Everything that looks at your photos runs on your Mac, and with Apple Intelligence so do search and the chat. Claude Code and Codex are optional, and only ever get short, sanitized text.</p>
 
-    <div class="flow" role="img" aria-label="Diagram: inside your Mac, Apple Photos feeds esoji, which understands photos on the Mac. A sanitizer turns requests into handles and stand-in names. Only that text crosses to Claude, and only if you turn the chat on.">
+    <div class="flow" role="img" aria-label="Diagram: inside your Mac, Apple Photos feeds esoji, which understands photos, searches and chats on the Mac with Apple Intelligence. A sanitizer turns requests into handles and stand-in names. Only that text crosses to Claude Code or Codex, and only if you turn one on.">
       <div class="mac">
         <span class="tag">YOUR MAC</span>
         <div class="node"><b>Apple Photos</b>Your library, read through Apple's Photos access</div>
         <div class="arrow"><span class="h">→</span><span class="v">↓</span></div>
-        <div class="node"><b>esoji, on device</b>EmbeddingGemma 2 and Apple Vision understand each photo. The index and face data are stored here.</div>
+        <div class="node"><b>esoji, on device</b>EmbeddingGemma 2 and Apple Vision understand each photo. Apple Intelligence reads searches and runs the chat. The index and face data are stored here.</div>
         <div class="arrow"><span class="h">→</span><span class="v">↓</span></div>
         <div class="node gate"><b>Sanitizer</b>Photo ids → <code>S3.12</code><br>Names → <code>PERSON_A</code><br>Emails, phones removed</div>
         <p class="never"><b>Never leaves:</b> photos, thumbnails, image embeddings, face data, photo ids, file names, your library.</p>
       </div>
       <div class="arrow"><span class="h">→</span><span class="v">↓</span><small>text only,<br>if you opt in</small></div>
       <div class="cloud">
-        <span class="tag">ANTHROPIC</span>
-        <div class="node"><b>Claude</b>Plans searches and albums from text. Its answers come back as proposals you review.</div>
+        <span class="tag">ANTHROPIC OR OPENAI</span>
+        <div class="node"><b>Claude Code or Codex</b>Optional. Plans searches and albums from text. Answers come back as proposals you review.</div>
       </div>
     </div>
 
     <div class="specs">
-      <div class="spec"><h3>On your Mac, always</h3><p>Photo understanding (EmbeddingGemma 2, Apple Vision), search, Suggested Hearts and Albums, duplicates and face matching all run locally. The index lives in your user Library folder, and nothing is uploaded.</p></div>
-      <div class="spec"><h3>Works offline</h3><p>The first launch downloads the search engine and model once (about 3 GB). After that, searching, suggestions and duplicates work with no internet. Exceptions: the chat, and photos stored only in iCloud, which Photos has to download first.</p></div>
-      <div class="spec"><h3>What Claude can see</h3><ul><li>The words you type, with People names swapped for stand-ins like <code>PERSON_A</code> (unless you choose to share names)</li><li>Handles like <code>S3.12</code> instead of photo ids</li><li>When a request needs it: the day, up to 2 places and 10 scene words per photo</li><li>Email addresses and phone numbers are stripped out</li></ul></div>
-      <div class="spec"><h3>What Claude never sees</h3><p>Your photos or any thumbnail of them, image embeddings, face data, photo ids, file names or your library as a whole. Handles only mean something on your Mac, in that one conversation.</p></div>
-      <div class="spec"><h3>Claude can't change anything</h3><p>Its tools run in a macOS sandbox with no network access. They can read esoji's index and write proposals, nothing else. Changes happen only when you press Apply, and deleting needs your click in a confirmation, then macOS asks again. A check on every build enforces this.</p></div>
-      <div class="spec"><h3>Off until you turn it on</h3><p>Claude is used only after you switch it on, and only through Claude Code on your Mac. Without it, everything except the chat still works.</p></div>
-      <div class="spec"><h3>No account, no tracking</h3><p>No sign-up, analytics or telemetry. The only other connection esoji makes is Check for Updates, when you choose it.</p></div>
+      <div class="spec"><h3>On your Mac, always</h3><p>Photo understanding (EmbeddingGemma 2, Apple Vision), search, Suggested Hearts and Albums, duplicates, face matching and Morning esoji all run locally. The index lives in your user Library folder, and nothing is uploaded.</p></div>
+      <div class="spec"><h3>Apple Intelligence, on your Mac</h3><p>On a Mac that supports Apple Intelligence, with it turned on, Apple's on-device model reads your searches, refines them and runs the chat. What it gets stays on your Mac, so it needs no account and asks nothing first. Without it, search gives instant results.</p></div>
+      <div class="spec"><h3>Works offline</h3><p>The first launch downloads the search engine and model once (about 3 GB). After that, search, suggestions, duplicates and the Apple Intelligence chat work with no internet. Exceptions: Claude Code or Codex if you choose them, and photos stored only in iCloud, which Photos has to download first.</p></div>
+      <div class="spec"><h3>What Claude Code or Codex can see</h3><ul><li>Nothing until you turn one on, in esoji's Settings</li><li>The words you type, with People names swapped for stand-ins like <code>PERSON_A</code> (unless you choose to share names)</li><li>Handles like <code>S3.12</code> instead of photo ids</li><li>When a request needs it: the day, up to 2 places and 10 scene words per photo</li><li>Email addresses and phone numbers are stripped out</li></ul></div>
+      <div class="spec"><h3>What they never see</h3><p>Your photos or any thumbnail of them, image embeddings, face data, photo ids, file names or your library as a whole. Handles only mean something on your Mac, in that one conversation.</p></div>
+      <div class="spec"><h3>The assistant can't change anything</h3><p>Whichever assistant you use, its tools run in a macOS sandbox with no network access. They can read esoji's index and write proposals, nothing else. Changes happen only when you press Apply, and deleting needs your click in a confirmation, then macOS asks again. A check on every build enforces this.</p></div>
+      <div class="spec"><h3>No account, no tracking</h3><p>No sign-up, analytics or telemetry. Besides the setup download, esoji checks for a new version at most once a day: one request for GitHub's public latest-release page, with an <code>esoji/&lt;version&gt;</code> User-Agent and nothing about you or your photos. You can turn it off in Settings.</p></div>
       <div class="spec"><h3>Forget means forget</h3><p>Hide a photo and everything esoji worked out from it is deleted. Settings → Privacy deletes your chats, or all of esoji's data.</p></div>
-      <div class="spec" style="grid-column: 1 / -1"><h3>The limits</h3><p>Stand-in names are pseudonyms, not anonymity: Claude can tell the same person appears in several photos. What Anthropic keeps depends on your Claude account's privacy settings.</p></div>
+      <div class="spec" style="grid-column: 1 / -1"><h3>The limits</h3><p>Stand-in names are pseudonyms, not anonymity: Claude or Codex can tell the same person appears in several photos. What Anthropic or OpenAI keeps depends on your account's privacy settings. Apple Intelligence's model is small: it handles short requests well, while Claude Code or Codex do better with long, many-step ones.</p></div>
     </div>
   </section>
 
