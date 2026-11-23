@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>esoji privacy policy</title>
+<meta name="description" content="What esoji for Mac and iPhone does with your photos and data: it keeps them on your device, collects nothing and tracks nothing.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://santekotturi.github.io/esoji/privacy.html">
+<link rel="icon" href="og-icon.png">
+<style>
+  :root { --bg: #faf8f4; --ink: #1d1b19; --muted: #6b665f; --line: rgba(0,0,0,.08); --accent: #e0523a; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #141312; --ink: #f2efe9; --muted: #a39d94; --line: rgba(255,255,255,.1); --accent: #f0603e; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+         -webkit-font-smoothing: antialiased; }
+  main { max-width: 720px; margin: 0 auto; padding: 64px 20px 56px; }
+  h1 { font: 700 40px/1.1 "SF Pro Display", -apple-system, sans-serif; letter-spacing: -.02em; margin: 0 0 8px; }
+  h2 { font: 600 22px/1.3 "SF Pro Display", -apple-system, sans-serif; margin: 40px 0 8px; }
+  .updated { color: var(--muted); margin: 0 0 32px; }
+  .lede { font-size: 20px; }
+  a { color: var(--accent); }
+  ul { padding-left: 1.2em; }
+  li { margin: 6px 0; }
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; }
+  footer a { color: inherit; margin-right: 16px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Privacy policy</h1>
+  <p class="updated">esoji for Mac and iPhone · Updated November 22, 2026</p>
+
+  <p class="lede">esoji works on your photos on your own device. It has no account, no servers of its own, no
+  analytics and no tracking. Nobody, including its developer, receives your photos or anything esoji works out from
+  them.</p>
+
+  <h2>What esoji reads</h2>
+  <p>With your permission, esoji reads your Photos library to show your photos and build an index of them: what's in
+  each photo, faces it groups together, duplicates and similar shots, and what you've chosen to keep. The index and
+  everything esoji learns from your choices are stored only in esoji's own storage on that device.</p>
+
+  <h2>What leaves your device</h2>
+  <ul>
+    <li><b>The model download.</b> The first time, esoji downloads its search model (about 470 MB on iPhone, about
+      3 GB on Mac) from Hugging Face (huggingface.co). This is a plain file download; it sends nothing about you or
+      your photos. Hugging Face, like any website, sees the request's IP address.</li>
+    <li><b>Update check (Mac only).</b> At most once a day, the Mac app asks GitHub for its latest public release,
+      with an <code>esoji/&lt;version&gt;</code> User-Agent and nothing about you or your photos. You can turn it off
+      in Settings → Updates.</li>
+    <li><b>Claude Code or Codex (Mac only, optional, off by default).</b> If you choose one of them for the chat, the
+      text of your requests goes to Anthropic or OpenAI after you agree, with photos replaced by handles and people by
+      stand-in names. Photos themselves are never sent. What those companies keep is set by your account with
+      them.</li>
+  </ul>
+  <p>Search understanding with Apple Intelligence runs on Apple's on-device model. esoji for iPhone sends nothing
+  else anywhere: no photos, no index, no usage data, no crash reports.</p>
+
+  <h2>What esoji changes</h2>
+  <p>esoji only changes your library when you ask: it can favorite photos and add them to albums, and it hides or
+  deletes only the photos you confirm, after iOS or macOS asks you too. Deleted photos stay in Photos' Recently
+  Deleted for 30 days.</p>
+
+  <h2>Data we collect</h2>
+  <p>None. esoji has no sign-in and doesn't collect personal information, usage data, identifiers or diagnostics,
+  and it doesn't share or sell anything. If you join a TestFlight beta, Apple shares with the developer what
+  TestFlight provides (such as your name or email if you're invited by email, and any feedback or crash reports you
+  choose to send); that's covered by <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>.</p>
+
+  <h2>Deleting your data</h2>
+  <p>Delete the app and everything esoji stored is deleted with it. On Mac, Settings → Privacy also deletes your
+  chats or all of esoji's data, and hiding a photo in esoji deletes everything it worked out from that photo.</p>
+
+  <h2>Children</h2>
+  <p>esoji isn't directed at children and collects no data from anyone.</p>
+
+  <h2>Changes and contact</h2>
+  <p>If this policy changes, the new version will be posted on this page with a new date. Questions:
+  <a href="https://github.com/santekotturi/esoji/issues/new">open an issue on GitHub</a>.</p>
+
+  <footer>
+    <a href="./">esoji</a>
+    <a href="https://github.com/santekotturi/esoji/issues/new">Report a problem</a>
+    <span>Made by Sante Kotturi</span>
+  </footer>
+</main>
+</body>
+</html>
